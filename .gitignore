@@ -1,0 +1,17 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.env
+
+# Node
+node_modules/
+dist/
+dist-ssr/
+
+# Éditeur / historique local
+.history/
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store

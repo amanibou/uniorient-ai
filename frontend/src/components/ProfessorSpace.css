@@ -1,0 +1,66 @@
+.prof-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.prof-search {
+  flex: 1 1 220px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--muted);
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 1rem;
+}
+
+.prof-search:focus {
+  outline: 2px solid var(--accent-1);
+  outline-offset: 1px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.note-input {
+  width: 90px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--muted);
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+}
+
+.small-btn {
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.prof-logout {
+  justify-self: start;
+}
+
+/* Carte plus grande : largeur fixe (presque toute la fenêtre, max 1000px) */
+.space-page.prof-page {
+  width: min(calc(100vw - 32px), 1000px);
+}
+
+.prof-panel {
+  width: 100%;
+  padding: 36px;
+}
+
+.prof-page .grades-table {
+  font-size: 1.05rem;
+}
+
+.prof-page .grades-table th,
+.prof-page .grades-table td {
+  padding: 14px 16px;
+}

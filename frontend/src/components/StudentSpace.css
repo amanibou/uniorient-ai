@@ -1,0 +1,208 @@
+.space-page {
+  width: min(100%, 720px);
+  margin: 0 auto;
+  display: grid;
+  gap: 16px;
+  text-align: left;
+}
+
+.space-page p {
+  margin: 0;
+}
+
+.space-page h2 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+/* Espace étudiant : titre en haut, menu à gauche et contenu à droite (PC) ; menu en haut (téléphone) */
+.student-page {
+  width: min(100%, 1100px);
+  gap: 24px;
+}
+
+.student-greeting {
+  display: grid;
+  gap: 6px;
+  padding: 0 4px;
+}
+
+.student-greeting h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.student-greeting p {
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.student-layout {
+  width: 100%;
+  display: grid;
+  gap: 24px;
+  align-items: start;
+}
+
+.student-sidebar {
+  display: grid;
+  gap: 24px;
+  padding: 28px;
+  border-radius: 22px;
+  border: 1px solid var(--muted);
+  background: var(--card);
+  backdrop-filter: blur(12px);
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.nav-btn {
+  flex: 1 1 auto;
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid var(--muted);
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 1.05rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.nav-btn:hover {
+  background: var(--card);
+}
+
+.nav-active,
+.nav-active:hover {
+  border-color: transparent;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  color: #fff;
+  font-weight: 700;
+}
+
+.sidebar-logout {
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 1rem;
+}
+
+.student-panel {
+  min-width: 0;
+  padding: 32px;
+  border-radius: 22px;
+  border: 1px solid var(--muted);
+  background: var(--card);
+  backdrop-filter: blur(12px);
+}
+
+.panel-body {
+  display: grid;
+  gap: 18px;
+}
+
+.panel-body h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.panel-hint {
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.panel-note {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.checklist {
+  display: grid;
+  gap: 12px;
+}
+
+.check-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid var(--muted);
+  font-size: 1.05rem;
+  cursor: pointer;
+}
+
+.check-item input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--accent-1);
+}
+
+.grades-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.05rem;
+}
+
+.grades-table th,
+.grades-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--muted);
+  text-align: left;
+}
+
+.grades-table th {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.grade-empty {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.empty-state {
+  display: grid;
+  gap: 10px;
+  padding: 24px 0;
+  text-align: center;
+  font-size: 1.05rem;
+}
+
+.empty-state p:first-child {
+  font-weight: 600;
+}
+
+@media (min-width: 700px) {
+  .student-layout {
+    grid-template-columns: 280px 1fr;
+  }
+
+  .sidebar-nav {
+    flex-direction: column;
+  }
+
+  .nav-btn {
+    text-align: left;
+  }
+}
+
+.student-side {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+
+.grade-value {
+  font-weight: 700;
+  font-size: 1.1rem;
+}

@@ -1,0 +1,344 @@
+/* Espace admin : même style que les autres espaces, avec une barre latérale plus large
+   et un tableau qui tient dans l'écran (texte qui passe à la ligne) */
+
+.space-page.admin-page {
+  width: min(calc(100vw - 32px), 1280px);
+}
+
+@media (min-width: 700px) {
+  .admin-page .student-layout {
+    grid-template-columns: 320px minmax(0, 1fr);
+  }
+}
+
+.admin-panel {
+  min-width: 0;
+  padding: 28px;
+}
+
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 14px;
+}
+
+.admin-stat {
+  display: grid;
+  gap: 4px;
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px solid var(--muted);
+  background: var(--card);
+}
+
+.admin-stat-value {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.admin-stat-label {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.admin-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+  font-size: 0.95rem;
+}
+
+.admin-table thead th {
+  padding: 6px 12px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.admin-table tbody td {
+  padding: 14px 12px;
+  border-top: 1px solid var(--muted);
+  border-bottom: 1px solid var(--muted);
+  background: var(--card);
+  vertical-align: middle;
+  text-align: left;
+  white-space: normal;
+}
+
+.admin-table tbody td:first-child {
+  border-left: 1px solid var(--muted);
+  border-radius: 14px 0 0 14px;
+}
+
+.admin-table tbody td:last-child {
+  border-right: 1px solid var(--muted);
+  border-radius: 0 14px 14px 0;
+}
+
+.admin-table tbody tr:hover td {
+  background: rgba(124, 58, 237, 0.08);
+}
+
+.stu-name {
+  font-weight: 700;
+}
+
+.matricule {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--accent-1);
+  font-size: 0.8rem;
+  color: var(--text);
+}
+
+.grade-badge {
+  display: inline-block;
+  min-width: 46px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+}
+
+.grade-none {
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Pleine largeur, barre latérale collée à gauche (sans espace vide) */
+.hero:has(> .admin-page) {
+  place-content: stretch;
+}
+
+
+.space-page.admin-page {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+/* Un peu plus d'espace à gauche de la barre latérale (admin seulement) */
+.app-shell:has(.admin-page) {
+  padding-left: 28px;
+}
+
+/* Accueil admin : style 3D (sphère 3D + statistiques qui se soulèvent au survol) */
+.admin-accueil {
+  gap: 22px;
+}
+
+.admin-hero {
+  display: grid;
+  gap: 20px;
+  align-items: center;
+}
+
+.admin-title {
+  margin: 0;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.admin-subtitle {
+  margin: 4px 0 10px;
+  color: var(--muted);
+  font-size: 1.05rem;
+  font-style: italic;
+}
+
+/* Sphère 3D au-dessus du menu, dans la barre latérale */
+.admin-side-orb {
+  display: grid;
+  justify-items: center;
+}
+
+.admin-side-orb .orb-wrapper {
+  width: 100%;
+}
+
+.admin-side-orb .orb-canvas {
+  height: 240px;
+}
+
+.admin-stats {
+  perspective: 900px;
+}
+
+.admin-stat {
+  transform-style: preserve-3d;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0 10px 28px rgba(124, 58, 237, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.admin-stat:hover {
+  transform: perspective(700px) rotateX(8deg) rotateY(-8deg) translateZ(14px);
+  box-shadow: 0 22px 40px rgba(219, 39, 119, 0.25), inset 0 0 0 1px rgba(124, 58, 237, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .admin-stat,
+  .admin-stat:hover {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* Titre et bouton "Mode nuit" sur la même ligne */
+.admin-greeting-row {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Style sombre bleu nuit (uniquement en mode nuit) */
+:root[data-theme="dark"] .admin-page .student-sidebar,
+:root[data-theme="dark"] .admin-page .student-panel {
+  background: linear-gradient(160deg, rgba(12, 20, 48, 0.94), rgba(6, 10, 26, 0.94));
+  border: 1px solid rgba(59, 130, 246, 0.45);
+  box-shadow: 0 0 28px rgba(59, 130, 246, 0.22), inset 0 1px 0 rgba(147, 197, 253, 0.12);
+}
+
+:root[data-theme="dark"] .admin-page .nav-btn {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  color: #e2e8f0;
+}
+
+:root[data-theme="dark"] .admin-page .nav-btn.nav-active {
+  background: linear-gradient(90deg, #2563eb, #0ea5e9);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 0 18px rgba(14, 165, 233, 0.45);
+}
+
+:root[data-theme="dark"] .admin-page .admin-stat {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.18), rgba(14, 165, 233, 0.08));
+  border: 1px solid rgba(59, 130, 246, 0.4);
+}
+
+/* "Bonjour administrateur" au centre de la ligne (le bouton Mode nuit reste à droite) */
+.admin-greeting-row > div:first-child {
+  flex: 1;
+  text-align: center;
+}
+
+/* Bouton Mode nuit à sa taille normale */
+.admin-greeting-row .theme-toggle {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+/* La barre latérale reste dans sa colonne (ne déborde plus sur le contenu) */
+.admin-page .student-layout > .student-side {
+  min-width: 0;
+  width: 100%;
+}
+
+.admin-sidebar {
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.admin-side-orb,
+.admin-side-orb .orb-wrapper,
+.admin-side-orb .orb-canvas {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.admin-side-orb canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Colonne droite : bannière "Système d'orientation" + contenu */
+.admin-main {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+  align-content: start;
+}
+
+.admin-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 28px;
+  border-radius: 22px;
+  border: 1px solid var(--muted);
+  background: var(--card);
+  backdrop-filter: blur(12px);
+}
+
+.admin-banner h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.admin-banner p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.admin-banner .theme-toggle {
+  flex: 0 0 auto;
+}
+
+:root[data-theme="dark"] .admin-page .admin-banner {
+  background: linear-gradient(160deg, rgba(12, 20, 48, 0.94), rgba(6, 10, 26, 0.94));
+  border: 1px solid rgba(59, 130, 246, 0.45);
+  box-shadow: 0 0 28px rgba(59, 130, 246, 0.22), inset 0 1px 0 rgba(147, 197, 253, 0.12);
+}
+
+/* Mode blanc : textes de l'espace admin en noir (pas en gris) */
+:root[data-theme="light"] .admin-page p:not(.status-error):not(.status-success),
+:root[data-theme="light"] .admin-page .admin-stat-label,
+:root[data-theme="light"] .admin-page .panel-hint,
+:root[data-theme="light"] .admin-page .panel-note,
+:root[data-theme="light"] .admin-page .matricule,
+:root[data-theme="light"] .admin-page .grade-none {
+  color: #000;
+}

@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+pymysql
+bcrypt
+pytesseract
+pillow
+python-multipart
+PyJWT
